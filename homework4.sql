@@ -16,3 +16,14 @@ SELECT executor_name FROM executor
 	
 SELECT track_name FROM track
 	WHERE track_name LIKE '%%My%%';
+
+SELECT track_name
+FROM track
+WHERE track_name ILIKE '%%мой' 
+OR track_name ILIKE '%%мой%%'
+OR track_name ILIKE 'мой'
+OR track_name ILIKE 'мой%%'
+OR track_name ILIKE '%%my'
+OR track_name ILIKE '%%my%%'
+OR track_name ILIKE 'my'
+OR track_name ILIKE 'my%%';

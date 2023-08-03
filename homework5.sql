@@ -2,19 +2,23 @@ SELECT g.genre_name, count(ge.executor_id) FROM genre g
    JOIN genre_executor ge ON g.id = ge.genre_id
    GROUP BY g.genre_name;
    
-SELECT a.album_name, a.year_of_release, count(t.id) FROM album a
+SELECT COUNT(t.id) FROM album a
    JOIN track t ON a.id = t.album_id
-   WHERE a.year_of_release BETWEEN 2019 and 2020
-   GROUP BY a.album_name, a.year_of_release;
+   WHERE a.year_of_release BETWEEN 2019 and 2020;   
   
 SELECT a.album_name, AVG(t.duration) FROM album a
 	JOIN track t ON a.id = t.album_id
 	GROUP BY a.album_name;
 
-SELECT e.executor_name FROM executor e
+SELECT e.executor_name 
+FROM executor e
+WHERE e.executor_name NOT IN (
+   SELECT DISTINCT e.executor_name
+   FROM executor e
    JOIN executor_album ea ON e.id = ea.executor_id
    JOIN album a ON a.id = ea.album_id
-   WHERE a.year_of_release < 2020; 
+   WHERE a.year_of_release = 2020
+   ); 
   
 SELECT c.collection_name FROM collection_of_songs c
    JOIN track_collection tc ON c.id = tc.collection_of_songs_id
