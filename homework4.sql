@@ -19,11 +19,11 @@ SELECT track_name FROM track
 
 SELECT track_name
 FROM track
-WHERE track_name ILIKE '%%мой' 
-OR track_name ILIKE '%%мой%%'
+WHERE track_name ILIKE '% мой' 
+OR track_name ILIKE '% мой %'
 OR track_name ILIKE 'мой'
-OR track_name ILIKE 'мой%%'
-OR track_name ILIKE '%%my'
-OR track_name ILIKE '%%my%%'
+OR track_name ILIKE 'мой %'
+OR track_name ILIKE '% my'
+OR track_name ILIKE '% my %'
 OR track_name ILIKE 'my'
-OR track_name ILIKE 'my%%';
+OR track_name ILIKE 'my %';
