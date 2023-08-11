@@ -3,7 +3,7 @@ from sqlalchemy.orm import sessionmaker
 from models import Publisher, Book, Shop, Stock, Sale
 
 # Создадим движок и сессию
-engine = create_engine('postgresql://username:password@localhost/database')
+engine = create_engine('postgresql://postgres:richard@localhost:5432/database')
 Session = sessionmaker(bind=engine)
 session = Session()
 
