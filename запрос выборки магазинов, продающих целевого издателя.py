@@ -26,3 +26,37 @@ else:
 
 # Закрываем сессию
 session.close()
+
+"""
+Здравствуйте, Александр!
+
+Хорошая работа, зачёт!
+
+Есть некоторые моменты, которые можно улучшить:
+
+желательно выносить каждый проект в отдельный репозиторий/папку
+
+соблюдайте правила именования модулей
+
+
+postgresql://postgres:richard@localhost:5432/database параметры подключения к БД лучше разбить на отдельные переменные
+
+запрос выборки должен разрешать выборку не только по имени, но и по id издателя. Вы можете реализовать его таким образом:
+"""
+#def get_sales(author_id = 0, author_name = ''):
+#     res = session.query(Book.title, Shop.name, Sale.price, Sale.count, Sale.date_sale).\
+#           join(Publisher).join(Stock).join(Sale).join(Shop).\
+#           filter(or_(Publisher.id==author_id, Publisher.name.ilike(f'%{publisher_name}%')))
+#
+#     for book, shop, price, count, date in res:
+#         print(f'{book: <40} | {shop: <10} | {price*count: <8} | {date.strftime('%d-%m-%Y')}')
+#
+#
+# ...
+# if __name__ == '__main__':
+#     ...
+#     q = input('Введите id или название издателя: ')
+#     if q.isdigit():
+#         get_sales(author_id=int(q))
+#     else:
+#         get_sales(author_name=q)
